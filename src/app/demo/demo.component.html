@@ -1,0 +1,13 @@
+<div>
+  <h2 [id]="myId">Hello </h2>
+  <h2> My age is </h2>
+  <input type="text" [disabled]="isDissable" value="Le Cuong" />
+  <h2 [ngClass]="successClass" class="is-error"> Hello Le Cuong </h2>
+  <h2 [style.color]="highlighColor"> My age is </h2>
+  <h2 [style.color]="false ? 'red' : 'blue'"> My age is </h2>
+  <button (click)="changeColor($event)">Change Color</button>
+  <hr>
+  <input #myInput type="text" id="input-id"><button (click)="getValue(myInput.value)">Click me</button>
+
+  <h2 id="value-target">{{myValue}}</h2>
+</div>
