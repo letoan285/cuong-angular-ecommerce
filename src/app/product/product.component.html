@@ -1,7 +1,13 @@
-<div class="product" [style.border]="border">
-  <strong>this is product name and description</strong>
-  <button>Price: $2000</button>
+<h2>Welcome To Mobie Shop</h2>
+<div class="product">
+    <div class="item-wrap" [ngClass]="{changeBorderColor: item.stock < 1}" *ngFor=" let item of items ">
+        <div class="item-img ">
+            <img src="{{item.image}}" alt=" ">
+        </div>
+        <h4 class="item-name ">{{item.name}}</h4>
+        <p class="stock">Số lượng: {{item.stock}}</p>
+        <p class="price ">Giá: <span *ngIf="item.showPrice">{{item.price}}</span></p>
+        <button class="btn btn-price" (click)="item.showPrice = true">Price</button>
+        <button class="btn btn-atc " (click)="addToCart(item.id)">Add to cart</button>
+    </div>
 </div>
-<button class="btn btn-red" (click)="changeBorder('red')">x</button>
-<button class="btn btn-green" (click)="changeBorder('green')">x</button>
-<button class="btn btn-blue" (click)="changeBorder('blue')">x</button>

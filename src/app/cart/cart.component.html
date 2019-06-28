@@ -1,0 +1,23 @@
+<div id="cart">
+    <h2>Cart</h2>
+    <table class="cart">
+        <tr>
+            <th>Tên Sản Phẩm</th>
+            <th>Số Lượng Mua</th>
+            <th>Giá Sản Phẩm</th>
+            <th>Thành Tiền</th>
+        </tr>
+        <tr *ngFor="let item of cart">
+            <td>{{item.name}}</td>
+            <td>{{item.buy}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.buy*item.price}}</td>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Tổng tiền</th>
+            <th id="total">{{ getBigTotal() }}</th>
+        </tr>
+    </table>
+</div>
