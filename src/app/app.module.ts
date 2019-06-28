@@ -5,13 +5,19 @@ import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
+import { HomeComponent } from './home/home.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoComponent,
     ProductComponent,
-    CartComponent
+    CartComponent,
+    HomeComponent,
+    ProductListComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

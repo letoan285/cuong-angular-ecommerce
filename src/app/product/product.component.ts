@@ -19,15 +19,35 @@ export class ProductComponent implements OnInit {
   });
   public Total: number;
   public t: any = [];
+  public inStock = true;
+  productLikeClass: string;
+  public products = [
+    {id: 1, name: 'product 1', price: 100, stock: 2},
+    {id: 2, name: 'product 2', price: 200, stock: 2},
+    {id: 3, name: 'product 3', price: 300, stock: 2},
+    {id: 4, name: 'product 4', price: 400, stock: 2}
+  ];
   getBigTotal() {
-    const reducer = (a, b) => a + b;
+    // const reducer = (a?, b?) => {
+    //   // if(a & b){
+    //   //   return a+b;
+    //   // } else {
+    //   //   return null;
+    //   // } retu
+    // }
+    const reducer = (a?, b?) => a + b;
     return this.cart.map(el => el = el.total).reduce(reducer);
   }
   constructor() {
     this.cart = data.rootCarts;
   }
-
+  
   ngOnInit() {
+    this.getLikeClass();
+  }
+
+  getLikeClass(){
+    this.productLikeClass = 'btn btn-sm btn-info';
   }
 
   addToCart(x: number): any {
@@ -53,6 +73,22 @@ export class ProductComponent implements OnInit {
         }
     } else {
       alert('Sản phẩm đã hết');
+    }
+  }
+  likeProduct(product: any){
+
+    for(let i = 0; i < this.items.length; i++){
+      if(this.items[i].id === product.id){
+        this.items[i].isLike = !this.items[i].isLike;
+      }
+    }
+
+  }
+  getProductLikeClass(isLike: boolean){
+    if(isLike){
+      return 'btn btn-sm btn-info';
+    } else {
+      return 'btn btn-sm btn-outline-info';
     }
   }
 }
