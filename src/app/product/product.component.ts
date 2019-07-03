@@ -19,11 +19,24 @@ export class ProductComponent implements OnInit {
   });
   public Total: number;
   public t: any = [];
+  public inStock = true;
+  public productLikeClass: string;
+  public products = [
+    { id: 1, name: 'product 1', price: 100, stock: 2 },
+    { id: 2, name: 'product 2', price: 200, stock: 2 },
+    { id: 3, name: 'product 3', price: 300, stock: 2 },
+    { id: 4, name: 'product 4', price: 400, stock: 2 }
+  ];
   constructor() {
     this.cart = data.rootCarts;
   }
-
   ngOnInit() {
+    this.getLikeClass();
+  }
+
+
+  getLikeClass() {
+    this.productLikeClass = 'btn btn-sm btn-info';
   }
   getBigTotal() {
     const reducer = (a, b) => a + b;
@@ -40,7 +53,7 @@ export class ProductComponent implements OnInit {
       cart.push(result);
       this.getBigTotal();
     } else if (result.stock >= 1) {
-      if ( this.t.filter( el => result.id === el ).length > 0 ) {
+      if (this.t.filter(el => result.id === el).length > 0) {
         result.stock--;
         result.buy++;
         result.total = result.buy * result.price;
@@ -52,9 +65,33 @@ export class ProductComponent implements OnInit {
         this.t.push(result.id);
         cart.push(result);
         this.getBigTotal();
-        }
+      }
     } else {
       alert('Sản phẩm đã hết');
+    }
+  }
+  likeProduct(product: any) {
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < this.items.length; i++) {
+      if (this.items[i].id === product.id) {
+        this.items[i].isLike = !this.items[i].isLike;
+      }
+    }
+
+
+  }
+  getProductLikeClass(isLike: boolean) {
+    if (isLike) {
+      return 'btn btn-sm btn-outline-info';
+    } else {
+      return 'btn btn-sm btn-info';
+    }
+  }
+  getLikeStt(isLike: boolean) {
+    if (isLike) {
+      return 'Like this';
+    } else {
+      return ' Unlike this';
     }
   }
 }

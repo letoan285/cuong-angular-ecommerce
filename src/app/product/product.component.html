@@ -2,12 +2,37 @@
 <div class="product">
     <div class="item-wrap" [ngClass]="{changeBorderColor: item.stock < 1}" *ngFor=" let item of items ">
         <div class="item-img ">
-            <img src="{{item.image}}" alt=" ">
+            <img src="{{item.image}}" alt=" " data-toggle="tooltip" title="Like this">
         </div>
-        <h4 class="item-name ">{{item.name}}</h4>
+        <h4 class="item-name text-danger">{{item.name}}</h4>
         <p class="stock">Số lượng: {{item.stock}}</p>
         <p class="price ">Giá: <span *ngIf="item.showPrice">{{item.price}}</span></p>
         <button class="btn btn-price" (click)="item.showPrice = true">Price</button>
         <button class="btn btn-atc " (click)="addToCart(item.id)">Add to cart</button>
+        <button [ngClass]="getProductLikeClass(item.isLike)" data-toggle="tooltip" [title]="getLikeStt(item.isLike)" (click)=" likeProduct(item) "><i class="fa fa-thumbs-up "></i></button>
     </div>
 </div>
+<h1 *ngIf="inStock; else elseBlock ">Co day san pham</h1>
+<ng-template #elseBlock>
+    <div>
+        <h1>Khong co san pham nao</h1>
+    </div>
+</ng-template>
+<!-- container chua html //mac dinh khong hien thi -->
+<hr>
+<div class="row ">
+    <div class="col-md-3 " *ngFor="let product of products; let i=i ndex ">
+        <div class="card ">
+            <div class="card-header ">
+                <strong>{{ product.name }}</strong>
+            </div>
+            <div class="card-body ">
+                <button class="btn btn-success ">{{ product.price }}</button>
+                <button class="btn btn-sm btn-primary ">{{ product.stock }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-container>
+    <h1>Hello</h1>
+</ng-container>

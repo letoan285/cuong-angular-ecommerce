@@ -11,6 +11,7 @@ export const listItems = [
     showPrice: false,
     buy: 0,
     total: Number,
+    isLike: true,
   },
   {
     id: 2,
@@ -21,7 +22,7 @@ export const listItems = [
     showPrice: false,
     buy: 0,
     total: Number,
-
+    isLike: true
   },
   {
     id: 3,
@@ -32,5 +33,6 @@ export const listItems = [
     showPrice: false,
     buy: 0,
     total: Number,
+    isLike: false
   },
 ];
