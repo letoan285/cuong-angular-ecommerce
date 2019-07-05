@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product-list',
@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
+  price = 9999;
+  parentName = 'Parent name';
+  public parentData = {
+    name: 'apple cha',
+    price: 9999
+  }
+  // @Output() 
   constructor() { }
 
   ngOnInit() {

@@ -1,0 +1,26 @@
+<form [formGroup]="productForm" (ngSubmit)="creatProduct()">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <div class="from-group">
+        <label for="">Product name</label>
+        <input type="text" class="form-control" formControlName="name">
+        <span *ngIf="touch" class="text-danger">Ten khong de trong</span>
+      </div>
+
+      <div class="from-group">
+        <label for="">Description</label>
+        <textarea formControlName="description" class="form-control" cols="30" rows="10"></textarea>
+      </div>
+
+      <div class="from-group">
+        <label for="">Price</label>
+        <input type="text" formControlName="price" class="form-control">
+      </div>
+      <div class="from-group">
+        <label for="">Email</label>
+        <input type="text" formControlName="email" class="form-control">
+      </div>
+      <button class="btn btn-success mt-4" type="submit" [disabled]="dissableButton">Submit</button>
+    </div>
+  </div>
+</form>

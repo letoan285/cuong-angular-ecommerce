@@ -14,6 +14,7 @@ import data from '../data';
 export class ProductComponent implements OnInit {
   public items: any = listItems;
   public cart: any = [];
+  touch = false;
   public idInCart = this.cart.map((item) => {
     return item.id;
   });
@@ -21,6 +22,7 @@ export class ProductComponent implements OnInit {
   public t: any = [];
   public inStock = true;
   public productLikeClass: string;
+  public productName = 'Apple';
   public products = [
     { id: 1, name: 'product 1', price: 100, stock: 2 },
     { id: 2, name: 'product 2', price: 200, stock: 2 },
@@ -95,5 +97,3 @@ export class ProductComponent implements OnInit {
     }
   }
 }
-
-
