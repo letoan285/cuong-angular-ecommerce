@@ -3,6 +3,7 @@ import { listItems } from '../data';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import data from '../data';
+import { ProductService } from '../services/product.service';
 
 
 @Component({
@@ -23,17 +24,24 @@ export class ProductComponent implements OnInit {
   public inStock = true;
   public productLikeClass: string;
   public productName = 'Apple';
+  public productData: any;
   public products = [
     { id: 1, name: 'product 1', price: 100, stock: 2 },
     { id: 2, name: 'product 2', price: 200, stock: 2 },
     { id: 3, name: 'product 3', price: 300, stock: 2 },
     { id: 4, name: 'product 4', price: 400, stock: 2 }
   ];
-  constructor() {
+  constructor(private productService: ProductService) {
     this.cart = data.rootCarts;
   }
   ngOnInit() {
     this.getLikeClass();
+    this.productService.getProducts().subscribe(res => {
+      this.productData = res;
+
+      
+    })
+    console.log('product data ', this.productData);
   }
 
 

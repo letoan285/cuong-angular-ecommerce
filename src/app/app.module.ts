@@ -12,6 +12,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { RedcolorDirective } from './directive/redcolor.directive';
+import { ContainerDirective } from './directive/container.directive';
+import { HttpClientModule } from '@angular/common/http';
+import { PostListComponent } from './post-list/post-list.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +27,18 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductListComponent,
     NavbarComponent,
     ProductAddComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    RedcolorDirective,
+    ContainerDirective,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 <h2>Welcome To Mobie Shop</h2>
 <div class="product">
-    <div class="item-wrap" [ngClass]="{changeBorderColor: item.stock < 1}" *ngFor=" let item of items ">
+    <div class="item-wrap" appRedcolor [ngClass]="{changeBorderColor: item.stock < 1}" *ngFor=" let item of items ">
         <div class="item-img ">
             <img src="{{item.image}}" alt=" " data-toggle="tooltip" title="Like this">
         </div>
@@ -22,9 +22,9 @@
 <hr>
 <!-- <input type="text" class="form-control" [(ngModel)]="productName" /><br>
 <h3>{{ productName }}</h3> -->
-<div class="row ">
+<div class="row " appContainer>
     <div class="col-md-3 " *ngFor="let product of products; let i=i ndex ">
-        <div class="card ">
+        <div class="card " appRedcolor>
             <div class="card-header ">
                 <strong>{{ product.name }}</strong>
             </div>

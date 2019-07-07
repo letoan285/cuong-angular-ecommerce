@@ -8,10 +8,6 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 const routes: Routes = [
   {
     path: '',
-    component: UserComponent
-  },
-  {
-    path: 'list',
     component: UserListComponent
   },
   {

@@ -4,6 +4,7 @@ import { ProductComponent } from './product/product.component';
 import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAddComponent } from './product-add/product-add.component';
+import { UserListComponent } from './views/users/user-list/user-list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
