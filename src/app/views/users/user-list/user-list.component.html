@@ -1,6 +1,4 @@
 <div class="user-list">
-  <h3>name: {{ userSelected }}</h3>
-
+  <h3>User Id: {{ userSelected }}</h3>
     <app-user [userData]="users" (userSelected)="userSelectedMethod($event)"></app-user>
-
 </div>
